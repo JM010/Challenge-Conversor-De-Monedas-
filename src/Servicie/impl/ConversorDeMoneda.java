@@ -11,7 +11,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConversorDeMoneda implements IConversorDeMoneda {
-    String apiKey = "2b9be1c13c0f0d3fb60ce9a6";
+     private String apiKey = "2b9be1c13c0f0d3fb60ce9a6";
 
     @Override
     public void convertir(String base, String target, double monto) {
@@ -31,11 +31,11 @@ public class ConversorDeMoneda implements IConversorDeMoneda {
 
     }
 
-    @Override
-    public void DevolverRespuesta(Moneda moneda, double monto) {
+    private void DevolverRespuesta(Moneda moneda, double monto) {
         String respuesta = "El valor " + moneda.base_code() +"["+monto +"]" +
                 " corresponde al valor final de =>>>" + moneda.conversion_result() +"[" +
                 moneda.target_code()+"]";
         System.out.println(respuesta);
+        System.out.println("");
     }
 }
