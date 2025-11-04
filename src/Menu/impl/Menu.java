@@ -42,6 +42,7 @@ public class Menu implements IMenu{
             i++;
         }
         System.out.println( i+") Salir");
+        System.out.println("**********************************************");
         System.out.print("Elija la moneda base o " + i + " si desea salir: ");
         Scanner sc =  new Scanner(System.in);
         int opcion = sc.nextInt();
@@ -64,11 +65,13 @@ public class Menu implements IMenu{
             i++;
         }
         System.out.println( i+") Salir");
+        System.out.println("**********************************************");
         System.out.print("Elija la moneda a la que desea convertir o " + i + " si desea salir: ");
         Scanner sc =  new Scanner(System.in);
         int opcion = sc.nextInt();
         if (opcion <= 0 || opcion> i) {
-            System.out.println("Opción incorrecta, vuelva a intentarlo");
+
+            System.out.println("Opción incorrecta, vuelva a intentarlo\n");
             printMenuSecondary(monedasDisponibles);
         }  else if (opcion == i) {
             target= "";

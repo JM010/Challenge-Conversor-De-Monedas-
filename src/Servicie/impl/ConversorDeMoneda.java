@@ -5,6 +5,7 @@ import Servicie.IConversorDeMoneda;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.math.RoundingMode;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -32,8 +33,8 @@ public class ConversorDeMoneda implements IConversorDeMoneda {
     }
 
     private void DevolverRespuesta(Moneda moneda, double monto) {
-        String respuesta = "El valor " + moneda.base_code() +"["+monto +"]" +
-                " corresponde al valor final de =>>>" + moneda.conversion_result() +"[" +
+        String respuesta = "El valor " + moneda.base_code() +"["+monto +"]," +
+                " corresponde al valor final de =>>> " + moneda.conversion_result().setScale(2, RoundingMode.HALF_UP) +"[" +
                 moneda.target_code()+"]";
         System.out.println(respuesta);
         System.out.println("");
