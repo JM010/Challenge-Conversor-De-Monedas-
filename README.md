@@ -54,7 +54,7 @@ src/
  │    ├── IConversorDeMonedas.java // Interfaz con la lógica de conversión
  │    └── ConversorDeMonedas.java  // Implementación del servicio
  │
- └── Main.java               // Clase principal del programa
+ └── ConversorApp.java               // Clase principal del programa
 ```
 
 ---
