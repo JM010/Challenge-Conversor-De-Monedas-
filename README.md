@@ -8,9 +8,9 @@ El objetivo es desarrollar un **conversor de monedas** en Java que realice solic
 ## 🧩 Tecnologías utilizadas
 - **Java 17+**
 - **Gson** (para parsear JSON)
-- **HTTP Client (nativo de Java 11+)** o **OkHttp**
+- **HTTP Client (nativo de Java 11+)**
 - **[API de tipo ExchangeRate](https://www.exchangerate-api.com/) / Currency API**
-- **Maven** (gestión de dependencias, opcional)
+- **Maven** (gestión de dependencias)
 
 ---
 
