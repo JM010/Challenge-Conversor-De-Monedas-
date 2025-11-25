@@ -47,10 +47,10 @@ src/
  │    └── MonedasDisponibles.java  // Enum con las monedas válidas para conversión
  │
  ├── menu/
- │    ├── IMenu.java         // Interfaz base del menú
- │    └── MenuPrincipal.java // Implementación concreta del menú de usuario
+ │    └── Menu.java //  menú de usuario
  │
  ├── service/
+ │    ├── ConsumoAPI.java          // Clase para manejar las solicitudes HTTP
  │    ├── IConversorDeMonedas.java // Interfaz con la lógica de conversión
  │    └── ConversorDeMonedas.java  // Implementación del servicio
  │
