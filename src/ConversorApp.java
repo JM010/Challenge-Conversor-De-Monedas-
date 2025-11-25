@@ -1,11 +1,4 @@
-import Menu.impl.Menu;
-import com.google.gson.Gson;
-import Enum.MonedasDisponibles;
-
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.util.Scanner;
+import Menu.Menu;
 
 
 public class ConversorApp {

@@ -1,6 +1,7 @@
 package Servicie.impl;
 
 import Enteties.Moneda;
+import Servicie.ConsumoAPI;
 import Servicie.IConversorDeMoneda;
 import com.google.gson.Gson;
 
@@ -12,24 +13,16 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConversorDeMoneda implements IConversorDeMoneda {
-     private String apiKey = "2b9be1c13c0f0d3fb60ce9a6";
+     private final String apiKey = "2b9be1c13c0f0d3fb60ce9a6";
+     private static final String URL_BASE ="https://v6.exchangerate-api.com/v6/";
 
     @Override
     public void convertir(String base, String target, double monto) {
-        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/"+apiKey+"/pair/"
-        + base + "/" + target + "/" +monto);
-        HttpClient cliente = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(direccion)
-                .build();
-        try {
-            HttpResponse<String> response = cliente.send(request, HttpResponse.BodyHandlers.ofString());
-            Moneda moneda = new Gson().fromJson(response.body(), Moneda.class);
-            DevolverRespuesta(moneda,monto);
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("No se ha podido hacer la conversion");
-        }
-
+        ConsumoAPI consumoAPI = new ConsumoAPI();
+        String url = URL_BASE + apiKey + "/pair/" + base + "/" + target + "/" + monto;
+        var json = consumoAPI.obtenerDatos(url);
+        Moneda moneda = new Gson().fromJson(json, Moneda.class);
+        DevolverRespuesta(moneda,monto);
     }
 
     private void DevolverRespuesta(Moneda moneda, double monto) {
@@ -37,6 +30,5 @@ public class ConversorDeMoneda implements IConversorDeMoneda {
                 " corresponde al valor final de =>>> " + moneda.conversion_result().setScale(2, RoundingMode.HALF_UP) +"[" +
                 moneda.target_code()+"]";
         System.out.println(respuesta);
-        System.out.println("");
     }
 }
