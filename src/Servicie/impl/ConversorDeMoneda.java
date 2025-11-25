@@ -5,15 +5,10 @@ import Servicie.ConsumoAPI;
 import Servicie.IConversorDeMoneda;
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.math.RoundingMode;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 public class ConversorDeMoneda implements IConversorDeMoneda {
-     private final String apiKey = "2b9be1c13c0f0d3fb60ce9a6";
+     private String apiKey = "2b9be1c13c0f0d3fb60ce9a6";
      private static final String URL_BASE ="https://v6.exchangerate-api.com/v6/";
 
     @Override
