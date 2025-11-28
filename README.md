@@ -51,6 +51,7 @@ src/
  │
  ├── service/
  │    ├── ConsumoAPI.java          // Clase para manejar las solicitudes HTTP
+ │    ├── MonedasService          // Clase para manejar las monedas disponibles
  │    ├── IConversorDeMonedas.java // Interfaz con la lógica de conversión
  │    └── ConversorDeMonedas.java  // Implementación del servicio
  │
